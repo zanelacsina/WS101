@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Astronomy Picture of the Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1>🚀 NASA Astronomy Picture of the Day 🌠</h1>
+        <div class="welcome-text">
+       <p>Welcome, <span id="userName"></span>!</p>
+        </div>
+
+        
+
+
+        <div class="search-box">
+            <input type="date" id="dateInput">
+            <button onclick="fetchAPOD()">Search</button>
+            <button id="logoutBtn" onclick="logout()">Logout</button>
+
+        </div>
+
+        <div id="loader" style="display: none;"></div>
+
+        <div id="content" class="content" style="display: none;">
+            <h2 id="title"></h2>
+            <img id="image" alt="NASA Astronomy Picture">
+            <p id="description"></p>
+            <p id="date"></p>
+            <button id="downloadBtn" style="display: none;" onclick="downloadImage()">Download Image</button>
+        </div>
+    </div>
+
+<!-- Check if user is signed in -->
+<script>
+  if (!localStorage.getItem('name')) {
+    window.location.href = 'index.html';
+  }
+  function logout() {
+    localStorage.clear();
+    window.location.href = 'index.html';
+  }
+   document.getElementById('userName').innerText = localStorage.getItem('name');
+</script>
+<script src="script.js"></script>
+</body>
+</html>
